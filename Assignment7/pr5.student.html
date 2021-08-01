@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC"-//w3c//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtm">
+<head>
+  <title>Student Info</title>
+</head>
+<body style="background-color: lightblue; color: red;">
+  <center>
+    <h1><u>STUDENT INFORMATION</u></h1>
+  <form action="" method="">
+ <label>Enter the Regno   </label>
+ <input type="text" id="rgno" name="rgno" value=" " size="30" placeholder="typehere"></br></br>
+ <label>Enter the Name  </label>&nbsp
+ <input type="text" id="name" name="name" value=" " size="30" placeholder="typehere"></br></br>
+ <label>Enter the Age</label>&nbsp&nbsp&nbsp&nbsp
+ <input type="text" id="age" name="age" value=" " size="30" placeholder="typehere"></br></br>
+ <label>Enter the Mark1</label>
+ <input type="text" id="m1" name="m1" value=" " size="30" placeholder="typehere"></br></br>
+ <label>Enter the Mark2</label>
+ <input type="text" id="m2" name="m2" value=" " size="30" placeholder="typehere"></br></br>
+ <label>Enter the Mark3</label>
+ <input type="text" id="m3" name="m3" value=" " size="30" placeholder="typehere"></br></br>
+ <label>Enter the Mark4</label>
+ <input type="text" id="m4" name="m4" value=" " size="30" placeholder="typehere"></br></br>
+ <label>Enter the Mark5</label>
+ <input type="text" id="m5" name="m5" value=" " size="30" placeholder="typehere"></br></br>
+ <input type="checkbox" name="hobby[]"  value="sports" class="msg" onchange="getValue(this.value)">Sports
+  <input type="checkbox" name="hobby[]"  value="singing" class="msg" onchange="getValue(this.value)">Singing
+  <input type="checkbox" name="hobby[]"  value="dance" class="msg" onchange="getValue(this.value)">Dance
+  <input type="checkbox" name="hobby[]"  value="reading" class="msg" onchange="getValue(this.value)">Reading
+  <input type="checkbox" name="hobby[]"  value="painting" class="msg" onchange="getValue(this.value)">Painting
+ </form><br><br>
+ 
+    <h5 id="nme"></h5>
+    <h5 id="regno"></h5>
+    <h5 id="a"></h5>
+    <h5 id="hobbies"></h5>
+    <h5 id="head"></h5>
+    <h5 id="mrk1"></h5>
+    <h5 id="mrk2"></h5>
+    <h5 id="mrk3"></h5>
+    <h5 id="mrk4"></h5>
+    <h5 id="mrk5"></h5>
+    <h5 id="total"></h5>
+    <h5 id="average"></h5>
+    <h5 id="result"></h5>
+  </center>
+
+
+  <script type="text/javascript">
+
+  var string="";
+  function getValue(value)
+  {
+    string += " "+value;
+    const student = {
+              name: document.getElementById('name').value,
+              regno: document.getElementById('rgno').value,
+              age: document.getElementById('age').value,
+              marks: {
+                  sub1: parseInt(document.getElementById('m1').value),
+                  sub2: parseInt(document.getElementById('m2').value),
+                  sub3: parseInt(document.getElementById('m3').value),
+                  sub4: parseInt(document.getElementById('m4').value),
+                  sub5: parseInt(document.getElementById('m5').value)
+              },
+              hobbies: string
+          };
+
+    document.getElementById("nme").innerHTML = "Name : " + student.name;
+        document.getElementById("regno").innerHTML = "Regno: " + student.regno;
+        document.getElementById("a").innerHTML = "Age: " + student.age;
+        document.getElementById("hobbies").innerHTML = "Hobbies: " + student.hobbies;
+        document.getElementById("head").innerHTML = "Marks in 5 Subjects";
+        document.getElementById("mrk1").innerHTML = student.marks.sub1;
+        document.getElementById("mrk2").innerHTML = student.marks.sub2;
+        document.getElementById("mrk3").innerHTML = student.marks.sub3;
+        document.getElementById("mrk4").innerHTML = student.marks.sub4;
+        document.getElementById("mrk5").innerHTML = student.marks.sub5;
+        var tot = student.marks.sub1 + student.marks.sub2 + student.marks.sub3 + student.marks.sub4 + student.marks.sub5;
+        avg=tot/5;
+        document.getElementById("total").innerHTML = "Total marks: " + tot;
+        document.getElementById("average").innerHTML = "Average: " + avg;
+        var result = "";
+        if (avg > 75) { result = "Distinction :))"; }
+        else if (avg > 35) {result = "Pass :)";}
+        else{ result = "Fail :("; }
+        document.getElementById("result").innerHTML = "Result: " + result;
+
+
+  }
+</script>
+</body>
+</html>

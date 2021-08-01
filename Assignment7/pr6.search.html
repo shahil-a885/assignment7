@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC"-//w3c//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtm">
+<head>
+	<title>Searching</title>
+</head>
+<body style="background-color: lightblue; color: red;">
+  <h1><u>SEARCH</u></h1>
+	<form action="" method="">
+ <label>Enter the Number</label>
+ <input type="text" id="name" name="name" value=" " size="30" placeholder="typehere" onchange="secondLargest(this.value)"></br></br>
+ <label>Result</label>
+<textarea id="res" cols="38" rows="3"></textarea>
+ </form>
+	<script type="text/javascript">
+		
+	function secondLargest(arry) {
+		var arr=new Array();
+		arr=arry.split(",");
+    var max1st = parseInt(arr[0]);
+    var max2nd = 0;
+    var i;
+    var string="";
+    var flag=0;
+
+    var ele=parseInt(prompt("Enter the element to search:"));
+
+    for(i=0;i<arr.length;i++)
+    {
+      if(ele==arr[i]){
+        flag=1;
+        break;
+      }
+   }
+
+      if(flag==1)
+      {
+        string="Element "+ele+" present at position "+(i+1)+"\n";
+      }
+      else{
+        string="Element "+ele+" is not present in the array \n";
+      }
+
+      for(i=1;i<arr.length;i++){
+        if((arr[i]>max1st)&& (arr[i] != max1st)){
+          max2nd=max1st;
+          max1st=arr[i];
+        }
+        else if ((arr[i]>max2nd)&& (arr[i] != max1st)) {
+          max2nd=arr[i];
+        }
+      }
+        string += "The second largest element in the array  is "+max2nd;
+        document.getElementById('res').value=string;
+      }
+</script>
+</body>
